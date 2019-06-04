@@ -13,6 +13,8 @@
     pip install bluepy
     ```
     
+    I use Gatt Backend in my code.
+    
 5. Install [pylgbst](https://github.com/undera/pylgbst) to interact with `Lego Boost Move Hub`. 
 6. Set a valid license:
 
