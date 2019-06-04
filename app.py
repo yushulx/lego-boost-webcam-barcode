@@ -3,8 +3,8 @@ import dbr
 import time
 import os
 from multiprocessing import Process, Queue, Condition, Value, Array
-from pylgbst import get_connection_auto
-from pylgbst.movehub import MoveHub
+from pylgbst.hub import MoveHub
+from pylgbst.comms.cgatt import GattConnection
 
 class Result:
     def __init__(self, image, results):
@@ -12,8 +12,9 @@ class Result:
         self.results = results
 
 def dbr_run(frame_queue, key_queue, cond, num, result_queue):
-    conn = get_connection_auto()  
+    conn = GattConnection()
     try:
+        conn.connect()
         hub = MoveHub(conn)
         print('Robot connected')
         speed = 0.5
@@ -49,14 +50,14 @@ def dbr_run(frame_queue, key_queue, cond, num, result_queue):
                     # up
                     print('up')
                     
-                    hub.motor_AB.constant(speed)
+                    hub.motor_AB.start_speed(speed)
                 elif key == ord('s'):
                     # down
                     print('down')
-                    hub.motor_AB.constant(speed * -1)
+                    hub.motor_AB.start_speed(speed * -1)
                 elif key == ord('p'):
                     print('pause')
-                    hub.motor_AB.stop(is_async=True)
+                    hub.motor_AB.stop()
             except:
                 pass
 
