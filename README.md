@@ -35,3 +35,6 @@
 - `s`: down
 - `q`: terminate the app
 - `c`: capture images and scan barcodes
+
+## Blog
+[Making a Barcode Scan Robot with Lego Boost and Webcam](https://www.codepool.biz/barcode-scan-robot-lego-boost-webcam.html)
