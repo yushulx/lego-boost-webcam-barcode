@@ -4,7 +4,7 @@ import time
 import os
 from multiprocessing import Process, Queue, Condition, Value, Array
 from pylgbst import get_connection_auto
-from pylgbst.movehub import MoveHub
+from pylgbst.hub import MoveHub
 
 class Result:
     def __init__(self, image, results):
