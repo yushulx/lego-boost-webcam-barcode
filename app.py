@@ -3,8 +3,8 @@ import dbr
 import time
 import os
 from multiprocessing import Process, Queue, Condition, Value, Array
+from pylgbst import get_connection_auto
 from pylgbst.hub import MoveHub
-from pylgbst.comms.cgatt import GattConnection
 
 class Result:
     def __init__(self, image, results):
